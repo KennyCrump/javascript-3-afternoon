@@ -11,13 +11,13 @@
   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: "These",
+  two: " are",
+  three: " the",
+  four: " property",
+  five: " values."
+};
 
 // for(var key in values) {
 //   console.log(values[key])
@@ -31,31 +31,39 @@
 //   console.log(key)
 // }
 
-
-
 ////////// PROBLEM 1 //////////
 
 /*
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-function showValues( obj ) {
-  //Code Here
+function showValues(obj) {
+  let concat = [];
+  for (var key in obj) {
+    concat.push(obj[key]);
+  }
+  return concat.join("");
 }
-
-
+//showValues(values);
 
 ////////// PROBLEM 2 //////////
 
 /*
   Write a function called greaterThan10 that takes in an object. 
-  Write a for in loop that loops over the object and changes any value that is greater than 10 to 0. 
+  Write a for in loop that loops over the object and changes any value that is great than 10 to 0. 
   Return the updated object.
 */
 
 //Code Here
 
-
+function greaterThan10(obj) {
+  for (var num in obj) {
+    if (obj[num] > 10) {
+      obj[num] = 0;
+    }
+  }
+  return obj;
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -67,7 +75,12 @@ function showValues( obj ) {
 
 //Code Here
 
-
+function double(obj) {
+  for (var val in obj) {
+    obj[val] *= 2;
+  }
+  return obj;
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -81,7 +94,16 @@ function showValues( obj ) {
 
 //Code Here
 
+function secrets(obj){
+  let newString = ''
 
+  for(key in obj){
+    if(key.startsWith('sh')){
+      newString += obj[key]
+    }
+  }
+  return newString
+}
 
 /* 
   Sometimes it's needed to delete object properties. 
@@ -101,8 +123,6 @@ function showValues( obj ) {
 
 // console.log(deleteAllThethings)
 
-
-
 ////////// PROBLEM 5 //////////
 
 /*
@@ -112,7 +132,10 @@ function showValues( obj ) {
 
 //Code Here
 
-
+function removePassword(obj) {
+  delete obj.password;
+  return obj;
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -122,7 +145,7 @@ var deleteTheBigNumbers = {
   second: 20,
   third: 110,
   fourth: 200
-}
+};
 // Do not edit the code above.
 
 /*
@@ -131,7 +154,11 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
-
+for (num in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[num] > 100) {
+    delete deleteTheBigNumbers[num];
+  }
+}
 
 ////////// PROBLEM 7 //////////
 
@@ -144,7 +171,14 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
-
+function startsWithK(obj) {
+  for (prop in obj) {
+   if(prop.charAt(0) === 'k'){
+     delete obj[prop]
+   }
+  }
+  return obj
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -160,3 +194,11 @@ var deleteTheBigNumbers = {
 //Code Here
 
 
+function hiddenTreasure(obj) {
+  for(prop in obj){
+    if(!obj[prop].includes('treasure')){
+      delete obj[prop]
+    }
+  }
+  return obj
+}

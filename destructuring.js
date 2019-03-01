@@ -23,6 +23,8 @@ var carDetails = {
 
 //Code Here
 
+let {color, make, model, year} = carDetails
+
 
 
 ////////// PROBLEM 2 //////////
@@ -35,6 +37,8 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
+
+  var {firstName, lastName, title} = obj
   
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
@@ -55,7 +59,11 @@ function greeting( obj ) {
 
 //Code Here
 
+function totalPopulation(obj) {
+   let {utah, california, arizona, texas} = obj
 
+   return utah + california + arizona + texas
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -69,7 +77,14 @@ function greeting( obj ) {
 
 //Code Here
 
+function ingredients(obj) {
+  let newArray = []
+  let {carb, fat, protein} = obj
 
+  newArray.push(carb, fat, protein)
+
+  return newArray
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -87,7 +102,9 @@ function greeting( obj ) {
 
 //Code Here
 
-
+function largeNumbers({first, second, third}) {
+  return Math.min(first, second, third)
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -99,4 +116,36 @@ function greeting( obj ) {
 
 //Code Here
 
+function numberGroups({a, b, c}){
+  if(a.length > b.length && a.length > c.length){
+    return a
+  }else if(b.length > a.length && b.length > c.length){
+    return b
+  }else{
+    return c
+  }
+}
+
+
+
+
+
+function numberGroups({a, b, c}){
+  let longest = a.length
+  let longestArr = a
+  if(b.length > longest){
+    longest = b.length
+    longestArr = b
+  }
+  if(c.length > longest){
+    longestArr = c
+  }
+  return longestArr
+}
+let obj = {person: 
+  {name: 'kenny', 
+  hobby: 'coding'}
+}
+
+let {name, hobby} = obj.person
 
